@@ -1,27 +1,4 @@
-<h2>Show tour</h2>
+<h2><%= @tour.title %></h2>
+<p><%= @tour.description %></p>
 
-<ul>
-
-  <li>
-    <strong>Title:</strong>
-    <%= @tour.title %>
-  </li>
-
-  <li>
-    <strong>Description:</strong>
-    <%= @tour.description %>
-  </li>
-
-  <li>
-    <strong>Published:</strong>
-    <%= @tour.published %>
-  </li>
-
-  <li>
-    <strong>City:</strong>
-    <%= @tour.city_id %>
-  </li>
-
-</ul>
-
-<%= link "Back", to: tour_path(@conn, :index) %>
+<%= link "Back to list", to: tour_path(@conn, :index) %>

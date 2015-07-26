@@ -1,0 +1,31 @@
+<h2>Listing tours</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Published</th>
+      <th>City</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for tour <- @tours do %>
+    <tr>
+      <td><%= tour.title %></td>
+      <td><%= tour.description %></td>
+      <td><%= tour.published %></td>
+      <td><%= tour.city_id %></td>
+
+      <td class="text-right">
+        <%= link "Edit", to: admin_tour_path(@conn, :edit, tour), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: admin_tour_path(@conn, :delete, tour), method: :delete, class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New tour", to: admin_tour_path(@conn, :new), class: "btn btn-success" %>

@@ -1,0 +1,6 @@
+<h2>Edit tour</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: admin_tour_path(@conn, :update, @tour) %>
+
+<%= link "Back", to: admin_tour_path(@conn, :index) %>

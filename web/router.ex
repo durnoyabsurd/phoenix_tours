@@ -8,6 +8,11 @@ defmodule PhoenixTours.Router do
     plug :protect_from_forgery
   end
 
+  pipeline :admin do
+    plug PlugBasicAuth, username: "admin", password: "admin"
+    plug :put_layout, {PhoenixTours.LayoutView, "admin.html"}
+  end
+
   pipeline :api do
     plug :accepts, ["json"]
   end
@@ -17,9 +22,19 @@ defmodule PhoenixTours.Router do
 
     get "/", TourController, :index
 
-    resources "/tours", TourController
-    resources "/cities", CityController
-    resources "/categories", CategoryController
+    resources "/tours", TourController, only: [:index, :show]
+    resources "/cities", CityController, only: [:index, :show]
+    resources "/categories", CategoryController, only: [:index]
+  end
+
+  scope "/admin", PhoenixTours, as: :admin do
+    pipe_through [:browser, :admin]
+
+    get "/", Admin.ToursController, :index
+
+    resources "/tours", Admin.TourController, except: [:show]
+    resources "/cities", Admin.CityController, except: [:show]
+    resources "/categories", Admin.CategoryController, except: [:show]
   end
 
   # Other scopes may use custom stacks.

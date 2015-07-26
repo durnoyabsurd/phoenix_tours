@@ -7,11 +7,28 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Tours</title>
+    <title>Admin panel</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
 
   <body>
+    <header>
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="/admin">Admin panel</a>
+          </div>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <li><a href="<%= admin_tour_path(@conn, :index) %>">Tours</a></li>
+              <li><a href="<%= admin_city_path(@conn, :index) %>">Cities</a></li>
+              <li><a href="<%= admin_category_path(@conn, :index) %>">Categories</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
     <div class="container" role="main">
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
