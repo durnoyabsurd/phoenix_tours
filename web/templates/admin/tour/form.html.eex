@@ -21,16 +21,23 @@
   </div>
 
   <div class="form-group">
-    <%= label f, :published, "Published" %>
-    <%= checkbox f, :published, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
     <%= label f, :city_id, "City" %>
-    <%= number_input f, :city_id, class: "form-control" %>
+    <%= select f, :city_id, city_options, class: "form-control" %>
   </div>
 
   <div class="form-group">
-    <%= submit "Submit", class: "btn btn-primary" %>
+    <%= label f, :category_ids, "Categories" %>
+    <%= select f, :category_ids, categories_options, multiple: true, class: "form-control" %>
+  </div>
+
+  <div class="checkbox">
+    <label>
+      <%= checkbox f, :published %>
+      Published
+    </label>
+  </div>
+
+  <div class="form-group">
+    <%= submit "Save", class: "btn btn-primary" %>
   </div>
 <% end %>

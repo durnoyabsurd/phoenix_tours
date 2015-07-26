@@ -3,7 +3,6 @@ defmodule PhoenixTours.Admin.TourController do
 
   alias PhoenixTours.Tour
   alias PhoenixTours.City
-  import Ecto.Query
 
   plug :scrub_params, "tour" when action in [:create, :update]
 
@@ -11,7 +10,7 @@ defmodule PhoenixTours.Admin.TourController do
     tours = Repo.all from t in Tour,
                        join: c in assoc(t, :city),
                        preload: [city: c]
-                       
+
     render(conn, "index.html", tours: tours)
   end
 
