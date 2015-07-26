@@ -35,6 +35,7 @@ defmodule PhoenixTours.Router do
     resources "/tours", Admin.TourController, except: [:show]
     resources "/cities", Admin.CityController, except: [:show]
     resources "/categories", Admin.CategoryController, except: [:show]
+    resources "/description", Admin.DescriptionController, only: [:index, :update]
   end
 
   # Other scopes may use custom stacks.

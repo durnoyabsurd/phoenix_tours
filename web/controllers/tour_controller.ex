@@ -14,8 +14,8 @@ defmodule PhoenixTours.TourController do
     case Repo.get(conn.assigns[:query], id) do
       nil ->
         conn
-          |> put_status(:not_found)
-          |> render(PhoenixTours.ErrorView, "404.html")
+        |> put_status(:not_found)
+        |> render(PhoenixTours.ErrorView, "404.html")
       tour ->
         render(conn, "show.html", tour: tour)
     end

@@ -1,0 +1,17 @@
+<%= if is_nil(@tour) do %>
+  <div class="jumbotron">
+    <h3>Well done!</h3>
+    <p>All tours have descriptions filled!</p>
+  </div>
+<% else %>
+  <h1><%= @tour.title %></h1>
+  <%= form_for @changeset, admin_description_path(@conn, :update, @tour.id), fn f -> %>
+    <div class="form-group">
+      <%= textarea f, :description, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= submit "Save", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+<% end %>

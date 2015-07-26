@@ -11,8 +11,8 @@ defmodule PhoenixTours.Tour do
     timestamps
   end
 
-  @required_fields ~w(title description city_id)
-  @optional_fields ~w(published)
+  @required_fields ~w(title city_id)
+  @optional_fields ~w(description published)
 
   # TODO: save categories
   def changeset(model, params \\ :empty) do

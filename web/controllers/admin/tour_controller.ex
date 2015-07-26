@@ -9,7 +9,8 @@ defmodule PhoenixTours.Admin.TourController do
   def index(conn, _params) do
     tours = Repo.all from t in Tour,
                        join: c in assoc(t, :city),
-                       preload: [city: c]
+                       preload: [city: c],
+                       order_by: t.inserted_at
 
     render(conn, "index.html", tours: tours)
   end

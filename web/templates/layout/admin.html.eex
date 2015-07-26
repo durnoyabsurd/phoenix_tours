@@ -23,6 +23,7 @@
               <li><%= link "Tours", to: admin_tour_path(@conn, :index) %></li>
               <li><%= link "Cities", to: admin_city_path(@conn, :index) %></li>
               <li><%= link "Categories", to: admin_category_path(@conn, :index) %></li>
+              <li><%= link "Fill descriptions", to: admin_description_path(@conn, :index) %></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li><%= link "Back to site", to: tour_path(@conn, :index) %></li>
