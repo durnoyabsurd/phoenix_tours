@@ -5,8 +5,8 @@ defmodule PhoenixTours.Tour do
     field :title, :string
     field :description, :string
     field :published, :boolean, default: false
-    belongs_to :city, City
-    has_many :categories, {"categories_tours", Category}
+    belongs_to :city, PhoenixTours.City
+    has_many :categories, {"categories_tours", PhoenixTours.Category}
 
     timestamps
   end

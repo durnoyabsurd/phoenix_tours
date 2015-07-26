@@ -2,11 +2,13 @@ defmodule PhoenixTours.Admin.TourController do
   use PhoenixTours.Web, :controller
 
   alias PhoenixTours.Tour
+  alias PhoenixTours.City
+  import Ecto.Query
 
   plug :scrub_params, "tour" when action in [:create, :update]
 
   def index(conn, _params) do
-    tours = Repo.all(Tour)
+    tours = Repo.all from t in Tour, preload: [:city]
     render(conn, "index.html", tours: tours)
   end
 

@@ -11,16 +11,20 @@ defmodule PhoenixTours.TourController do
   end
 
   def show(conn, %{"id" => id}) do
-    case Repo.get(conn.assigns[:query], id) do
+    query = conn.assigns[:query] |> Ecto.Query.preload(:city)
+
+    case Repo.get(query, id) do
       nil ->
-        conn |> put_status(:not_found) |> render(PhoenixTours.ErrorView, "404.html")
+        conn
+          |> put_status(:not_found)
+          |> render(PhoenixTours.ErrorView, "404.html")
       tour ->
         render(conn, "show.html", tour: tour)
     end
   end
 
   def find_tours(conn, _params) do
-    query = from(t in  Tour, where: t.published)
+    query = from t in Tour, where: t.published
     assign(conn, :query, query)
   end
 end

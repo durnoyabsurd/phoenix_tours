@@ -1,4 +1,10 @@
 <h2><%= @tour.title %></h2>
+
+<div>
+  <strong>City: </strong>
+  <%= link @tour.city.name, to: tour_path(@conn, :show, @tour.city) %>
+</div>
+
 <p><%= @tour.description %></p>
 
 <%= link "Back to list", to: tour_path(@conn, :index) %>

@@ -15,7 +15,7 @@
     <tr>
       <td><%= tour.title %></td>
       <td><%= tour.published && "✓" || "✗" %></td>
-      <td><%= tour.city_id %></td>
+      <td><%= tour.city.name %></td>
 
       <td class="text-right">
         <%= if tour.published do %>
