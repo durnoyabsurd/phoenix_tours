@@ -11,9 +11,7 @@ defmodule PhoenixTours.TourController do
   end
 
   def show(conn, %{"id" => id}) do
-    query = conn.assigns[:query] |> Ecto.Query.preload(:city)
-
-    case Repo.get(query, id) do
+    case Repo.get(conn.assigns[:query], id) do
       nil ->
         conn
           |> put_status(:not_found)
@@ -24,7 +22,11 @@ defmodule PhoenixTours.TourController do
   end
 
   def find_tours(conn, _params) do
-    query = from t in Tour, where: t.published
+    query = from t in Tour,
+              where: t.published,
+              join: c in assoc(t, :city),
+              preload: [city: c]
+
     assign(conn, :query, query)
   end
 end

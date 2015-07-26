@@ -8,7 +8,10 @@ defmodule PhoenixTours.Admin.TourController do
   plug :scrub_params, "tour" when action in [:create, :update]
 
   def index(conn, _params) do
-    tours = Repo.all from t in Tour, preload: [:city]
+    tours = Repo.all from t in Tour,
+                       join: c in assoc(t, :city),
+                       preload: [city: c]
+                       
     render(conn, "index.html", tours: tours)
   end
 
