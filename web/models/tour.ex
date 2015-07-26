@@ -11,8 +11,8 @@ defmodule PhoenixTours.Tour do
     timestamps
   end
 
-  @required_fields ~w(title description published city_id)
-  @optional_fields ~w()
+  @required_fields ~w(title description city_id)
+  @optional_fields ~w(published)
 
   @doc """
   Creates a changeset based on the `model` and `params`.

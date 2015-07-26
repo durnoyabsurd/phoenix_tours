@@ -30,7 +30,7 @@ defmodule PhoenixTours.Router do
   scope "/admin", PhoenixTours, as: :admin do
     pipe_through [:browser, :admin]
 
-    get "/", Admin.ToursController, :index
+    get "/", Admin.TourController, :index
 
     resources "/tours", Admin.TourController, except: [:show]
     resources "/cities", Admin.CityController, except: [:show]

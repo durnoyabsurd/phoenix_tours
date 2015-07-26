@@ -16,13 +16,16 @@
       <nav class="navbar navbar-default">
         <div class="container-fluid">
           <div class="navbar-header">
-            <a class="navbar-brand" href="/admin">Admin panel</a>
+            <%= link "Admin panel", to: admin_tour_path(@conn, :index), class: "navbar-brand" %>
           </div>
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-              <li><a href="<%= admin_tour_path(@conn, :index) %>">Tours</a></li>
-              <li><a href="<%= admin_city_path(@conn, :index) %>">Cities</a></li>
-              <li><a href="<%= admin_category_path(@conn, :index) %>">Categories</a></li>
+              <li><%= link "Tours", to: admin_tour_path(@conn, :index) %></li>
+              <li><%= link "Cities", to: admin_city_path(@conn, :index) %></li>
+              <li><%= link "Categories", to: admin_category_path(@conn, :index) %></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><%= link "Back to site", to: tour_path(@conn, :index) %></li>
             </ul>
           </div>
         </div>
