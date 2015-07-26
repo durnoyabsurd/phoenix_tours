@@ -1,0 +1,12 @@
+<h2>Show city</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @city.name %>
+  </li>
+
+</ul>
+
+<%= link "Back", to: city_path(@conn, :index) %>

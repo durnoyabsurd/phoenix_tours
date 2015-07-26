@@ -15,7 +15,11 @@ defmodule PhoenixTours.Router do
   scope "/", PhoenixTours do
     pipe_through :browser # Use the default browser stack
 
-    get "/", PageController, :index
+    get "/", TourController, :index
+
+    resources "/tours", TourController
+    resources "/cities", CityController
+    resources "/categories", CategoryController
   end
 
   # Other scopes may use custom stacks.
