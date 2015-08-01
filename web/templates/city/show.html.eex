@@ -1,12 +1,11 @@
-<h2>Show city</h2>
+<ol class="breadcrumb">
+  <li><%= link "Home", to: tour_path(@conn, :index) %></li>
+  <li><%= link "Cities", to: city_path(@conn, :index) %></li>
+  <li class="active"><%= @city.name %></li>
+</ol>
 
-<ul>
-
-  <li>
-    <strong>Name:</strong>
-    <%= @city.name %>
-  </li>
-
-</ul>
-
-<%= link "Back", to: city_path(@conn, :index) %>
+<h2><%= @city.name %></h2>
+<%= render PhoenixTours.TourView,
+           "_list.html",
+           conn: @conn,
+           tours: @city.tours %>

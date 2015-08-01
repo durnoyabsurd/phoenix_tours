@@ -3,6 +3,7 @@ defmodule PhoenixTours.City do
 
   schema "cities" do
     field :name, :string
+    has_many :tours, PhoenixTours.Tour
 
     timestamps
   end

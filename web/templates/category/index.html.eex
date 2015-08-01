@@ -1,0 +1,11 @@
+<ol class="breadcrumb">
+  <li><%= link "Home", to: tour_path(@conn, :index) %></li>
+  <li class="active">Categories</li>
+</ol>
+
+<h2>Categories</h2>
+<ul>
+  <%= for category <- @categories do %>
+    <li><h3><%= link category.name, to: category_path(@conn, :show, category) %></h3></li>
+  <% end %>
+</li>

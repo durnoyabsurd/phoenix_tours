@@ -1,5 +1,7 @@
 <ol class="breadcrumb">
-  <li><%= link "Back to all tours", to: tour_path(@conn, :index) %></li>
+  <li><%= link "Home", to: tour_path(@conn, :index) %></li>
+  <li><%= link "Categories", to: category_path(@conn, :index) %></li>
+  <li class="active"><%= @category.name %></li>
 </ol>
 
 <h2><%= @category.name %></h2>

@@ -6,6 +6,12 @@
         <li><%= link category.name, to: category_path(@conn, :show, category) %></li>
       <% end %>
     </ul>
+    <h3>Cities</h3>
+    <ul>
+      <%= for city <- cities do %>
+        <li><%= link city.name, to: city_path(@conn, :show, city) %></li>
+      <% end %>
+    </ul>
   </div>
   <div class="col-lg-9">
     <h2>Tours</h2>

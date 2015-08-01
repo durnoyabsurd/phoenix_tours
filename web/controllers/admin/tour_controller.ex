@@ -78,7 +78,7 @@ defmodule PhoenixTours.Admin.TourController do
   end
 
   defp update_categories(tour, tour_params) do
-    Repo.delete_all from tc in TourCategory, where: tc.tour_id == ^(tour.id)
+    Repo.delete_all from tc in TourCategory, where: tc.tour_id == ^tour.id
 
     case Dict.fetch(tour_params, "category_ids") do
       {:ok, category_ids} ->

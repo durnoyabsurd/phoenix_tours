@@ -1,5 +1,5 @@
 <ol class="breadcrumb">
-  <li><%= link "Back to list", to: tour_path(@conn, :index) %></li>
+  <li><%= link "Home", to: tour_path(@conn, :index) %></li>
 </ol>
 
 <h2><%= @tour.title %></h2>
