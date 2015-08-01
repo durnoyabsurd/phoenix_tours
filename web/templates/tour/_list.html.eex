@@ -1,0 +1,9 @@
+<%= if @tours != [] do %>
+  <ul>
+    <%= for tour <- @tours do %>
+      <li><h3><%= link tour.title, to: tour_path(@conn, :show, tour) %></h3></li>
+    <% end %>
+  </ul>
+<% else %>
+  <div class="alert alert-warning">No tours</div>
+<% end %>

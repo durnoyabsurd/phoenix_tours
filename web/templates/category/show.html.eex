@@ -1,0 +1,9 @@
+<ol class="breadcrumb">
+  <li><%= link "Back to all tours", to: tour_path(@conn, :index) %></li>
+</ol>
+
+<h2><%= @category.name %></h2>
+<%= render PhoenixTours.TourView,
+           "_list.html",
+           conn: @conn,
+           tours: @category.tours %>

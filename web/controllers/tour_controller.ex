@@ -11,7 +11,10 @@ defmodule PhoenixTours.TourController do
   end
 
   def show(conn, %{"id" => id}) do
-    case Repo.get(conn.assigns[:query], id) do
+    tour = Repo.get(conn.assigns[:query], id)
+           |> Repo.preload([:city, :categories])
+
+    case tour do
       nil ->
         conn
         |> put_status(:not_found)

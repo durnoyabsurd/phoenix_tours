@@ -3,8 +3,8 @@ defmodule PhoenixTours.Category do
 
   schema "categories" do
     field :name, :string
-    has_many :tour_categories, PhoenixTour.TourCategory
-    has_many :tours, through: [:tour_categories, :tours]
+    has_many :tour_categories, PhoenixTours.TourCategory
+    has_many :tours, through: [:tour_categories, :tour]
 
     timestamps
   end

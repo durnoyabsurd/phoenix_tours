@@ -24,7 +24,7 @@ defmodule PhoenixTours.Router do
 
     resources "/tours", TourController, only: [:index, :show]
     resources "/cities", CityController, only: [:index, :show]
-    resources "/categories", CategoryController, only: [:index]
+    resources "/categories", CategoryController, only: [:show]
   end
 
   scope "/admin", PhoenixTours, as: :admin do

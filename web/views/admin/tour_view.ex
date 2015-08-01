@@ -1,10 +1,10 @@
 defmodule PhoenixTours.Admin.TourView do
   use PhoenixTours.Web, :view
+  import Ecto.Query
 
   alias PhoenixTours.City
   alias PhoenixTours.Category
   alias PhoenixTours.Repo
-  import Ecto.Query
 
   def city_options do
     Repo.all from c in City, select: {c.name, c.id}, order_by: c.name

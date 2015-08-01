@@ -1,7 +1,14 @@
-<h2>Tours</h2>
-
-<ul>
-  <%= for tour <- @tours do %>
-    <li><h3><%= link tour.title, to: tour_path(@conn, :show, tour) %></h3></li>
-  <% end %>
-</ul>
+<div class="row">
+  <div class="col-lg-3">
+    <h3>Categories</h3>
+    <ul>
+      <%= for category <- categories do %>
+        <li><%= link category.name, to: category_path(@conn, :show, category) %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="col-lg-9">
+    <h2>Tours</h2>
+    <%= render "_list.html", conn: @conn, tours: @tours %>
+  </div>
+</div>

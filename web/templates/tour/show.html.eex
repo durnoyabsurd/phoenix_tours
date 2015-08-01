@@ -1,10 +1,21 @@
+<ol class="breadcrumb">
+  <li><%= link "Back to list", to: tour_path(@conn, :index) %></li>
+</ol>
+
 <h2><%= @tour.title %></h2>
 
 <div>
   <strong>City: </strong>
-  <%= link @tour.city.name, to: tour_path(@conn, :show, @tour.city) %>
+  <%= link @tour.city.name, to: city_path(@conn, :show, @tour.city) %>
+</div>
+
+<div>
+  <strong>Categories: </strong>
+  <%= for category <- @tour.categories do %>
+    <%= link to: category_path(@conn, :show, category) do %>
+      <span class="label label-default"><%= category.name %></span>
+    <% end %>
+  <% end %>
 </div>
 
 <p><%= @tour.description %></p>
-
-<%= link "Back to list", to: tour_path(@conn, :index) %>

@@ -7,7 +7,7 @@ defmodule PhoenixTours.Tour do
     field :published, :boolean, default: false
     belongs_to :city, PhoenixTours.City
     has_many :tour_categories, PhoenixTours.TourCategory
-    has_many :categories, through: [:tour_categories, :categories]
+    has_many :categories, through: [:tour_categories, :category]
     field :category_ids, {:array, :integer}, virtual: true
 
     timestamps
