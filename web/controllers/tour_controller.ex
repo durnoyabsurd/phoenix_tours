@@ -21,7 +21,7 @@ defmodule PhoenixTours.TourController do
     end
   end
 
-  def find_tours(conn, _params) do
+  defp find_tours(conn, _params) do
     query = from t in Tour,
               where: t.published,
               join: c in assoc(t, :city),

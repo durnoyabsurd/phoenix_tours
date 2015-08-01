@@ -27,7 +27,12 @@
 
   <div class="form-group">
     <%= label f, :category_ids, "Categories" %>
-    <%= select f, :category_ids, categories_options, multiple: true, class: "form-control" %>
+    <%= multiple_select(
+          f,
+          :category_ids,
+          categories_options,
+          value: category_ids(@changeset),
+          class: "form-control") %>
   </div>
 
   <div class="checkbox">
