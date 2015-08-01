@@ -1,4 +1,4 @@
-<h2>Listing tours</h2>
+<h2>Tours</h2>
 
 <table class="table">
   <thead>
@@ -17,7 +17,7 @@
       <td><%= tour.published && "✓" || "✗" %></td>
       <td><%= tour.city.name %></td>
 
-      <td class="text-right">
+      <td class="text-right" nowrap="nowrap">
         <%= if tour.published do %>
           <%= link "Show on site", to: tour_path(@conn, :show, tour), class: "btn btn-primary btn-xs", target: "_blank" %>
         <% end %>
