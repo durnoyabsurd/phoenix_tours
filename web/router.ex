@@ -9,7 +9,6 @@ defmodule PhoenixTours.Router do
   end
 
   pipeline :admin do
-    plug PlugBasicAuth, username: "admin", password: "admin"
     plug :put_layout, {PhoenixTours.LayoutView, "admin.html"}
   end
 
