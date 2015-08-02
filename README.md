@@ -6,3 +6,5 @@
 Visit `localhost:4000` to see the site.
 
 Visit admin panel `localhost:4000/admin` using login `admin` and password `admin`.
+
+Test with `mix test`.

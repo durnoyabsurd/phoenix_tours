@@ -11,17 +11,10 @@ defmodule PhoenixTours.TourController do
   end
 
   def show(conn, %{"id" => id}) do
-    tour = Repo.get(conn.assigns[:query], id)
-           |> Repo.preload([:city, :categories])
+    tour = Repo.get!(conn.assigns[:query], id)
+           |> Repo.preload([:categories])
 
-    case tour do
-      nil ->
-        conn
-        |> put_status(:not_found)
-        |> render(PhoenixTours.ErrorView, "404.html")
-      tour ->
-        render(conn, "show.html", tour: tour)
-    end
+    render(conn, "show.html", tour: tour)
   end
 
   defp find_tours(conn, _params) do
