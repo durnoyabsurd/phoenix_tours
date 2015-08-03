@@ -17,7 +17,7 @@ defmodule PhoenixTours.Router do
   end
 
   scope "/", PhoenixTours do
-    pipe_through :browser # Use the default browser stack
+    pipe_through :browser
 
     get "/", TourController, :index
 
@@ -37,8 +37,11 @@ defmodule PhoenixTours.Router do
     resources "/description", Admin.DescriptionController, only: [:index, :update]
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", PhoenixTours do
-  #   pipe_through :api
-  # end
+  scope "/api", PhoenixTours, as: :api do
+    pipe_through :api
+
+    resources "/tours", Api.TourController, except: [:new, :edit]
+    resources "/cities", Api.CityController, except: [:new, :edit]
+    resources "/categories", Api.CategoryController, except: [:new, :edit]
+  end
 end
